@@ -1,8 +1,8 @@
-# Your Name Here
+# Chase Shelley
 # UWYO COSC 1010
-# Submission Date
+# OCT 20
 # Lab 06
-# Lab Section: 
+# Lab Section: 16
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -64,37 +64,48 @@ zkdenxczyooloczcaahnkehbwimvieedpdlqfafbqvxvfmvabd
 random_string = random_string.replace("\n","") #remove all newline characters
 print(len(random_string)) # Print out the size for reference 
 
-# Above is a string with 2500 characters.
-# Create a program that goes through and counts the occurrence of each character, excluding \n using a  dictionary
-# Output each letter and its corresponding occurrence in alphabetical order
-# Output which letter occurred the most 
-# Output which letter occurred the least 
-# Output what the percentage of the string each character is, again in alphabetical
+all_letters={}
+for any_letter in random_string:
+    if any_letter not in all_letters:
+        all_letters[any_letter] = 1
+    else:
+       all_letters[any_letter] += 1
 
-#Tips and trick:
-# You can iterate through strings like you would a list
-# All characters are lowercase 
-# Each letter will be PAIRED with its corresponding value 
-# That is to say, this is a great use of dictionaries
-    # You will  need to add the letter to the dictionary on first occurrence 
-    # Then increment its corresponding count 
+for letter in sorted(all_letters.keys()):
+    print(letter, ":", all_letters[letter])
 
-
-#Load all the elements into a dictionary
-#Will need to first declare a dictionary 
 
 # Output: each letter and its corresponding occurrence in alphabetical order
-
-print("*"*75)
 # Output which letter occurred the most 
 
-most_occurred = ""
-least_occurred = ""
+most_occurred = "a"
+least_occurred = "a"
+
+for key in all_letters.keys():
+    if all_letters[key] > all_letters[most_occurred]:
+        most_occurred = key
+
+for key in all_letters.keys():
+    if all_letters[key] < all_letters[least_occurred]:
+        least_occurred = key
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
+
 # Output which letter occurred the least 
+
 print(f"The letter that occurred the most is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+for letter in sorted(all_letters.keys()):
+    print(letter, ":", all_letters[letter] /25)
+
+
+
+
+
+
+
+
+
